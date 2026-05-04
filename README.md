@@ -30,8 +30,18 @@ The `deepfilter` tag enables the cgo wrapper around the vendored libdf.
 
 ## Models
 
-Models are not shipped in the repo. Run `scripts/fetch-models.sh` to
-download `tse_model.onnx` and `speaker_encoder.onnx`.
+solo-audio-core does not ship ONNX models in the repo. Run:
+
+```bash
+./scripts/fetch-models.sh
+```
+
+This caches `tse_model.onnx` and `speaker_encoder.onnx` under `models/`.
+By default the script copies from a local voice-keyboard checkout at
+`~/Documents/Projects/voice-keyboard/core/build/models`. Override with
+`VK_BUILD_MODELS=/path/to/models ./scripts/fetch-models.sh`.
+
+Future minor versions will publish models as GitHub Release assets.
 
 ## Origin
 

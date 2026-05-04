@@ -1,0 +1,16 @@
+# Build artefacts
+*.dylib.dSYM/
+build/
+
+# Editor
+.idea/
+.vscode/
+.DS_Store
+
+# Test outputs
+testdata/out/
+*.test
+*.out
+
+# Models (downloaded by scripts/fetch-models.sh)
+models/*.onnx

@@ -1,0 +1,18 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with: { go-version: '1.22' }
+      - name: Default-tag tests
+        run: go test ./...
+      - name: deepfilter-tag tests
+        run: go test -tags deepfilter ./pkg/denoise/
+      # speakerbeam tests run nightly, not on every PR (require model download).
